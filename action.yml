@@ -1,6 +1,6 @@
-name: 'The name of your action here'
-description: 'Provide a description here'
-author: 'Your name or organization here'
+name: 'create dmg'
+description: 'Create dmg on macOS by actions'
+author: 'L-Super'
 
 # Add your action's branding here. This will appear on the GitHub Marketplace.
 branding:
@@ -9,15 +9,12 @@ branding:
 
 # Define your inputs here.
 inputs:
-  milliseconds:
-    description: 'Your input description here'
-    required: true
-    default: '1000'
-
-# Define your outputs here.
-outputs:
-  time:
-    description: 'Your output description here'
+  src_dir:
+    description: 'source dir'
+    default: 'src_dir'
+  dmg_name:
+    description: 'dmg name'
+    default: 'dmg_name'
 
 runs:
   using: node20
