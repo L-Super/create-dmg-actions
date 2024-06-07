@@ -10,10 +10,10 @@ branding:
 # Define your inputs here.
 inputs:
   src_dir:
-    description: 'source dir'
+    description: 'Path of the Application Bundle.'
     default: 'src_dir'
   dmg_name:
-    description: 'dmg name'
+    description: 'Set the name of the output DMG file.'
     default: 'dmg_name'
 
 runs:
