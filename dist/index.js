@@ -26184,6 +26184,7 @@ exports.run = void 0;
 const core = __importStar(__nccwpck_require__(2186));
 const exec_1 = __nccwpck_require__(1514);
 const fs = __importStar(__nccwpck_require__(7147));
+const path = __importStar(__nccwpck_require__(1017));
 function writeSVGToFile(svg, filePath) {
     fs.writeFile(filePath, svg, 'utf-8', err => {
         if (err) {
@@ -26201,8 +26202,11 @@ async function run() {
     try {
         const src_dir = core.getInput('src_dir');
         const dmg_name = core.getInput('dmg_name');
+        // Expect to get xxx.app
+        const base_name = path.basename(src_dir);
         core.debug(`src_dir = ${src_dir} `);
         core.debug(`dmg_name = ${dmg_name} `);
+        core.debug(`base_name = ${base_name}`);
         core.info(`Installing create-dmg`);
         await (0, exec_1.exec)(`brew install create-dmg`);
         core.info(`create-dmg installed`);
@@ -26216,7 +26220,7 @@ async function run() {
         writeSVGToFile(svg_data, 'bg.svg');
         // Log the current timestamp, wait, then log the new timestamp
         core.debug(new Date().toTimeString());
-        await (0, exec_1.exec)(`create-dmg --volname "${dmg_name}" --background "bg.svg" --window-pos 200 120 --window-size 660 400 --icon-size 100 --icon ${dmg_name}.app 160 185 --hide-extension "${src_dir}" --app-drop-link 500 185 ${dmg_name}.dmg ${src_dir}`);
+        await (0, exec_1.exec)(`create-dmg --volname "${dmg_name}" --background "bg.svg" --window-pos 200 120 --window-size 660 400 --icon-size 100 --icon ${base_name} 160 185 --hide-extension "${src_dir}" --app-drop-link 500 185 ${dmg_name}.dmg ${src_dir}`);
         core.info(`Create dmg finished`);
         // Set outputs for other workflow steps to use
         core.setOutput('dmg_name', `${dmg_name}.dmg`);
