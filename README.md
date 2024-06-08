@@ -24,7 +24,7 @@ conveniently install and use your application.
 ## Example usage
 
 ```
-uses: L-Super/create-dmg-actions@v1.0.0
+uses: L-Super/create-dmg-actions@v1.0.1
 with:
   dmg_name: 'installer'
   src_dir: 'demo.app'
