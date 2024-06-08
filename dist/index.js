@@ -26216,7 +26216,7 @@ async function run() {
         writeSVGToFile(svg_data, 'bg.svg');
         // Log the current timestamp, wait, then log the new timestamp
         core.debug(new Date().toTimeString());
-        await (0, exec_1.exec)(`create-dmg --volname "${dmg_name}" --background "bg.svg" --window-pos 200 120 --window-size 660 400 --icon-size 100 --app-drop-link 500 185 ${dmg_name}.dmg ${src_dir}`);
+        await (0, exec_1.exec)(`create-dmg --volname "${dmg_name}" --background "bg.svg" --window-pos 200 120 --window-size 660 400 --icon-size 100 --icon "${dmg_name}.app" 160 185 --app-drop-link 500 185 ${dmg_name}.dmg ${src_dir}`);
         core.debug(new Date().toTimeString());
         // Set outputs for other workflow steps to use
         core.setOutput('dmg_name', `${dmg_name}.dmg`);

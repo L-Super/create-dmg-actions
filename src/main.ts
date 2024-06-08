@@ -41,7 +41,7 @@ export async function run(): Promise<void> {
     // Log the current timestamp, wait, then log the new timestamp
     core.debug(new Date().toTimeString())
     await exec(
-      `create-dmg --volname "${dmg_name}" --background "bg.svg" --window-pos 200 120 --window-size 660 400 --icon-size 100 --app-drop-link 500 185 ${dmg_name}.dmg ${src_dir}`
+      `create-dmg --volname "${dmg_name}" --background "bg.svg" --window-pos 200 120 --window-size 660 400 --icon-size 100 --icon "${dmg_name}.app" 160 185 --app-drop-link 500 185 ${dmg_name}.dmg ${src_dir}`
     )
     core.debug(new Date().toTimeString())
 
