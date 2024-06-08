@@ -11,9 +11,11 @@ branding:
 inputs:
   src_dir:
     description: 'Path of the Application Bundle.'
+    required: true
     default: 'src_dir'
   dmg_name:
     description: 'Set the name of the output DMG file.'
+    required: true
     default: 'dmg_name'
 
 runs:

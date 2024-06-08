@@ -26203,9 +26203,9 @@ async function run() {
         const dmg_name = core.getInput('dmg_name');
         core.debug(`src_dir = ${src_dir} `);
         core.debug(`dmg_name = ${dmg_name} `);
-        core.debug(new Date().toTimeString());
+        core.info(`Installing create-dmg`);
         await (0, exec_1.exec)(`brew install create-dmg`);
-        core.debug(new Date().toTimeString());
+        core.info(`create-dmg installed`);
         const svg_data = `<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="660" height="400" viewBox="0 0 660 400" fill="none">
     <path     fill="#F1F1F5"  d="M0 400L660 400L660 0L0 0L0 400Z">
     </path>
@@ -26216,8 +26216,8 @@ async function run() {
         writeSVGToFile(svg_data, 'bg.svg');
         // Log the current timestamp, wait, then log the new timestamp
         core.debug(new Date().toTimeString());
-        await (0, exec_1.exec)(`create-dmg --volname "${dmg_name}" --background "bg.svg" --window-pos 200 120 --window-size 660 400 --icon-size 100 --icon "${dmg_name}.app" 160 185 --app-drop-link 500 185 ${dmg_name}.dmg ${src_dir}`);
-        core.debug(new Date().toTimeString());
+        await (0, exec_1.exec)(`create-dmg --volname "${dmg_name}" --background "bg.svg" --window-pos 200 120 --window-size 660 400 --icon-size 100 --icon ${dmg_name}.app 160 185 --hide-extension "${src_dir}" --app-drop-link 500 185 ${dmg_name}.dmg ${src_dir}`);
+        core.info(`Create dmg finished`);
         // Set outputs for other workflow steps to use
         core.setOutput('dmg_name', `${dmg_name}.dmg`);
     }
