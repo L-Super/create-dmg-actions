@@ -6,11 +6,11 @@
 [![CodeQL](https://github.com/actions/typescript-action/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/actions/typescript-action/actions/workflows/codeql-analysis.yml)
 
 A script designed to automate the creation of standard .dmg installation files
-for Mac OS X systems.
+for macOS systems.
 
 ## Overview
 
-The .dmg file is a widely used disk image format in Mac OS X systems, commonly
+The .dmg file is a widely used disk image format in macOS systems, commonly
 used for distributing applications and data. With Create DMG Action, you can
 easily package your application into .dmg format, ensuring that users can
 conveniently install and use your application.
@@ -24,7 +24,7 @@ conveniently install and use your application.
 ## Example usage
 
 ```
-uses: L-Super/create-dmg-actions@v1.0.1
+uses: L-Super/create-dmg-actions@v1.0.2
 with:
   dmg_name: 'installer'
   src_dir: 'demo.app'
