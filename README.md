@@ -10,10 +10,10 @@ for macOS systems.
 
 ## Overview
 
-The .dmg file is a widely used disk image format in macOS systems, commonly
-used for distributing applications and data. With Create DMG Action, you can
-easily package your application into .dmg format, ensuring that users can
-conveniently install and use your application.
+The .dmg file is a widely used disk image format in macOS systems, commonly used
+for distributing applications and data. With Create DMG Action, you can easily
+package your application into .dmg format, ensuring that users can conveniently
+install and use your application.
 
 ## Inputs
 
