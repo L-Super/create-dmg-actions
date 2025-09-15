@@ -39,17 +39,17 @@
   },
   "devDependencies": {
     "@types/node": "^22.15.19",
-    "@typescript-eslint/eslint-plugin": "^8.34.1",
+    "@typescript-eslint/eslint-plugin": "^8.43.0",
     "@typescript-eslint/parser": "^8.32.1",
     "@vercel/ncc": "^0.38.3",
-    "eslint": "^9.29.0",
+    "eslint": "^9.35.0",
     "eslint-plugin-github": "^6.0.0",
     "eslint-plugin-jest": "^28.11.0",
     "eslint-plugin-jsonc": "^2.20.1",
-    "eslint-plugin-prettier": "^5.5.0",
+    "eslint-plugin-prettier": "^5.5.4",
     "make-coverage-badge": "^1.2.0",
-    "prettier": "^3.6.0",
+    "prettier": "^3.6.2",
     "prettier-eslint": "^16.4.2",
-    "typescript": "^5.8.3"
+    "typescript": "^5.9.2"
   }
 }
