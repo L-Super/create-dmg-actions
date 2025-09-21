@@ -23,11 +23,26 @@ install and use your application.
 
 ## Example usage
 
-```
+```yml
 uses: L-Super/create-dmg-actions@v1.0.3
 with:
   dmg_name: 'installer'
   src_dir: 'demo.app'
+```
+
+```yml
+- name: Create dmg
+  uses: L-Super/create-dmg-actions@v1
+  with:
+    dmg_name: 'demo'
+    src_dir: '${{ github.workspace }}/build/demo.app'
+
+- name: Upload macOS DMG as Artifact
+  uses: actions/upload-artifact@v4
+  with:
+    name: macOS-DMG
+    path: ${{ github.workspace }}/demo*.dmg
+    retention-days: 7
 ```
 
 ## License
