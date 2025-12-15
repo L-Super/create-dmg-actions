@@ -35,7 +35,7 @@
   "license": "MIT",
   "dependencies": {
     "@actions/core": "^1.11.1",
-    "@actions/exec": "^1.1.1"
+    "@actions/exec": "^2.0.0"
   },
   "devDependencies": {
     "@types/node": "^24.7.2",
