@@ -39,7 +39,7 @@
   },
   "devDependencies": {
     "@types/node": "^24.7.2",
-    "@typescript-eslint/eslint-plugin": "^8.53.0",
+    "@typescript-eslint/eslint-plugin": "^8.53.1",
     "@typescript-eslint/parser": "^8.32.1",
     "@vercel/ncc": "^0.38.4",
     "eslint": "^9.39.2",
@@ -48,7 +48,7 @@
     "eslint-plugin-jsonc": "^2.21.0",
     "eslint-plugin-prettier": "^5.5.5",
     "make-coverage-badge": "^1.2.0",
-    "prettier": "^3.8.0",
+    "prettier": "^3.8.1",
     "prettier-eslint": "^16.4.2",
     "typescript": "^5.9.3"
   }
