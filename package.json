@@ -45,7 +45,7 @@
     "eslint": "^10.3.0",
     "eslint-plugin-github": "^6.0.0",
     "eslint-plugin-jest": "^29.15.2",
-    "eslint-plugin-jsonc": "^2.21.0",
+    "eslint-plugin-jsonc": "^3.1.2",
     "eslint-plugin-prettier": "^5.5.5",
     "make-coverage-badge": "^1.2.0",
     "prettier": "^3.8.3",
