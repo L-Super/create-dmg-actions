@@ -2,22 +2,43 @@ name: 'create macOS dmg'
 description: 'Create dmg on macOS by actions'
 author: 'L-Super'
 
-# Add your action's branding here. This will appear on the GitHub Marketplace.
 branding:
   icon: 'box'
   color: 'green'
 
-# Define your inputs here.
 inputs:
   src_dir:
     description: 'Path of the Application Bundle.'
     required: true
-    default: 'src_dir'
   dmg_name:
     description: 'Set the name of the output DMG file.'
     required: true
-    default: 'dmg_name'
+  background:
+    description:
+      'Path to a custom background image (SVG/PNG). Uses a built-in arrow
+      background if not set.'
+    required: false
+  window_size:
+    description: 'DMG window size as WxH (e.g. 660x400).'
+    required: false
+    default: '660x400'
+  icon_size:
+    description: 'Icon size in pixels.'
+    required: false
+    default: '100'
+  icon_position:
+    description: 'App icon position as "X Y".'
+    required: false
+    default: '160 185'
+  app_drop_link:
+    description: 'Applications shortcut position as "X Y".'
+    required: false
+    default: '500 185'
+
+outputs:
+  dmg_path:
+    description: 'The file name of the generated DMG (e.g. MyApp.dmg).'
 
 runs:
-  using: node20
+  using: node22
   main: dist/index.js

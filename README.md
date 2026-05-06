@@ -1,12 +1,11 @@
-# Create DMG actions
+# Create DMG Actions
 
-[![GitHub Super-Linter](https://github.com/actions/typescript-action/actions/workflows/linter.yml/badge.svg)](https://github.com/super-linter/super-linter)
-![CI](https://github.com/actions/typescript-action/actions/workflows/ci.yml/badge.svg)
-[![Check dist/](https://github.com/actions/typescript-action/actions/workflows/check-dist.yml/badge.svg)](https://github.com/actions/typescript-action/actions/workflows/check-dist.yml)
-[![CodeQL](https://github.com/actions/typescript-action/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/actions/typescript-action/actions/workflows/codeql-analysis.yml)
+[![CI](https://github.com/L-Super/create-dmg-actions/actions/workflows/ci.yml/badge.svg)](https://github.com/L-Super/create-dmg-actions/actions/workflows/ci.yml)
+[![Check dist/](https://github.com/L-Super/create-dmg-actions/actions/workflows/check-dist.yml/badge.svg)](https://github.com/L-Super/create-dmg-actions/actions/workflows/check-dist.yml)
+[![CodeQL](https://github.com/L-Super/create-dmg-actions/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/L-Super/create-dmg-actions/actions/workflows/codeql-analysis.yml)
 
-A script designed to automate the creation of standard .dmg installation files
-for macOS systems.
+A GitHub Action to automate the creation of standard .dmg installation files for
+macOS systems.
 
 ## Overview
 
@@ -17,21 +16,39 @@ install and use your application.
 
 ## Inputs
 
-- `dmg_name`(**Required**): Set the name of the output DMG file.
+| Name | Required | Default | Description |
+| --- | --- | --- | --- |
+| `dmg_name` | Yes | — | Set the name of the output DMG file. |
+| `src_dir` | Yes | — | Path of the Application Bundle. |
+| `background` | No | built-in SVG | Path to a custom background image (SVG/PNG). |
+| `window_size` | No | `660x400` | DMG window size as `WxH`. |
+| `icon_size` | No | `100` | Icon size in pixels. |
+| `icon_position` | No | `160 185` | App icon position as `X Y`. |
+| `app_drop_link` | No | `500 185` | Applications shortcut position as `X Y`. |
 
-- `src_dir`(**Required**): Path of the Application Bundle.
+## Outputs
 
-## Example usage
+| Name | Description |
+| --- | --- |
+| `dmg_path` | The file name of the generated DMG (e.g. `MyApp.dmg`). |
+
+## Example Usage
+
+### Basic
 
 ```yml
-uses: L-Super/create-dmg-actions@v1.0.3
-with:
-  dmg_name: 'installer'
-  src_dir: 'demo.app'
+- name: Create DMG
+  uses: L-Super/create-dmg-actions@v1
+  with:
+    dmg_name: 'installer'
+    src_dir: 'demo.app'
 ```
 
+### Full workflow with artifact upload
+
 ```yml
-- name: Create dmg
+- name: Create DMG
+  id: create-dmg
   uses: L-Super/create-dmg-actions@v1
   with:
     dmg_name: 'demo'
@@ -41,8 +58,23 @@ with:
   uses: actions/upload-artifact@v4
   with:
     name: macOS-DMG
-    path: ${{ github.workspace }}/demo*.dmg
+    path: ${{ github.workspace }}/${{ steps.create-dmg.outputs.dmg_path }}
     retention-days: 7
+```
+
+### Custom appearance
+
+```yml
+- name: Create DMG
+  uses: L-Super/create-dmg-actions@v1
+  with:
+    dmg_name: 'MyApp'
+    src_dir: 'build/MyApp.app'
+    background: 'assets/dmg-background.png'
+    window_size: '800x500'
+    icon_size: '128'
+    icon_position: '200 250'
+    app_drop_link: '600 250'
 ```
 
 ## License
