@@ -40,5 +40,5 @@ outputs:
     description: 'The file name of the generated DMG (e.g. MyApp.dmg).'
 
 runs:
-  using: node22
+  using: node24
   main: dist/index.js
